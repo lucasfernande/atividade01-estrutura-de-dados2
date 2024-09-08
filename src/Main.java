@@ -8,7 +8,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("1 - Adicionar produto\n2 - Buscar produto\n3 - Editar produto\n4 - Remover produto\n5 - Sair\n");
+            System.out.println("1 - Adicionar produto\n2 - Buscar produto\n3 - Editar produto\n4 - Remover produto\n5 - Mostrar itens do estoque\n6 - Sair\n");
             System.out.print("Digite sua opção: ");
             int opc = Integer.parseInt(scan.nextLine());
 
@@ -41,7 +41,6 @@ public class Main {
 
                 try {
                     estoque.editarProduto(codigoProduto);
-                    System.out.println(estoque);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -51,11 +50,13 @@ public class Main {
 
                 try {
                     System.out.println("Produto removido: " + estoque.removerProduto(codigoProduto));
-                    System.out.println(estoque);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else if (opc == 5) {
+                System.out.println(estoque);
+            }
+            else if (opc == 6) {
                 break;
             } else {
                 System.out.println("Opção inválida, tente novamente.");

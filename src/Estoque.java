@@ -46,6 +46,7 @@ public class Estoque {
 
     public void editarProduto(int codigo) throws Exception {
         Produto produto = this.buscarProduto(codigo);
+        System.out.println("Produto encontrado! => " + produto);
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Digite o nome do produto: ");
