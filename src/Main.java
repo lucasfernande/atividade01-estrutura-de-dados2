@@ -34,6 +34,16 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            } else if (opc == 3) {
+                System.out.print("Digite o código do produto: ");
+                int codigoProduto = Integer.parseInt(scan.nextLine());
+
+                try {
+                    estoque.editarProduto(codigoProduto);
+                    System.out.println(estoque);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else if (opc == 5) {
                 break;
             } else {

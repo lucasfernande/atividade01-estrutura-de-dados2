@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Estoque {
     private Object[] produtos;
     private int tamanho;
@@ -40,6 +42,19 @@ public class Estoque {
             }
         }
         throw new Exception("Não existe um produto com esse código no estoque!");
+    }
+
+    public void editarProduto(int codigo) throws Exception {
+        Produto produto = this.buscarProduto(codigo);
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Digite o nome do produto: ");
+        String nomeProduto = scan.nextLine();
+        System.out.print("Digite o preço do produto: ");
+        double precoProduto = Double.parseDouble(scan.nextLine());
+
+        produto.setNome(nomeProduto);
+        produto.setPreco(precoProduto);
     }
 
     @Override
