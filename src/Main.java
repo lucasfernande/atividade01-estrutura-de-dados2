@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -40,6 +41,16 @@ public class Main {
 
                 try {
                     estoque.editarProduto(codigoProduto);
+                    System.out.println(estoque);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (opc == 4) {
+                System.out.print("Digite o código do produto: ");
+                int codigoProduto = Integer.parseInt(scan.nextLine());
+
+                try {
+                    System.out.println("Produto removido: " + estoque.removerProduto(codigoProduto));
                     System.out.println(estoque);
                 } catch (Exception e) {
                     e.printStackTrace();

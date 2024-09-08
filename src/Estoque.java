@@ -57,6 +57,33 @@ public class Estoque {
         produto.setPreco(precoProduto);
     }
 
+    public Produto removerProduto(int codigo) throws Exception {
+        Produto produtoRemovido = buscarProduto(codigo);
+        int pos = indiceProduto(produtoRemovido);
+
+        if (pos >= 0 && pos < this.tamanho) {
+            for (int i = pos; i < this.tamanho - 1; i++) {
+                this.produtos[i] = this.produtos[i + 1];
+            }
+            this.tamanho--;
+            this.produtos[tamanho] = null;
+        } else {
+            throw new Exception("Posição inválida");
+        }
+
+        return produtoRemovido;
+    }
+
+    public int indiceProduto(Object produto) {
+        int pos;
+        for (pos = 0; pos < tamanho; pos++) {
+            if (produtos[pos].equals(produto)) {
+                break;
+            }
+        }
+        return pos;
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
