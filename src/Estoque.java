@@ -32,6 +32,16 @@ public class Estoque {
         return tamanho;
     }
 
+    public Produto buscarProduto(int codigo) throws Exception {
+        for (int i = 0; i < this.tamanho; i++) {
+            Produto produto = (Produto) this.produtos[i];
+            if (produto.getCodigo() == codigo) {
+                return produto;
+            }
+        }
+        throw new Exception("Não existe um produto com esse código no estoque!");
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();

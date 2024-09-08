@@ -24,6 +24,16 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            } else if (opc == 2) {
+                System.out.print("Digite o código do produto: ");
+                int codigoProduto = Integer.parseInt(scan.nextLine());
+
+                try {
+                    Produto produto = estoque.buscarProduto(codigoProduto);
+                    System.out.println("Produto encontrado! => " + produto);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else if (opc == 5) {
                 break;
             } else {
