@@ -10,6 +10,10 @@ public class Estoque {
     }
 
     public void adicionarProduto(Object produto) throws Exception {
+        if (codigoJaExiste(((Produto) produto).getCodigo())) {
+            throw new Exception("Já existe um produto com esse código!");
+        }
+
         this.aumentaCapacidade();
         if (this.tamanho < this.produtos.length) {
             this.produtos[this.tamanho] = produto;
@@ -28,6 +32,15 @@ public class Estoque {
             }
             this.produtos = novoVetor;
         }
+    }
+
+    public boolean codigoJaExiste(int codigo) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (((Produto) this.produtos[i]).getCodigo() == codigo) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getTamanho() {
